@@ -1,0 +1,17 @@
+[Unit]
+Description=t3code thread auto-title (ClickUp / GitHub issue links)
+After=default.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/tools/t3code-thread-titler
+ExecStart=%h/tools/t3code-thread-titler/node_modules/.bin/tsx %h/tools/t3code-thread-titler/src/watcher.ts
+Restart=on-failure
+RestartSec=3
+# gh CLI needs $HOME for its stored credentials; the ClickUp token is read from
+# ~/.config/clickup/token by the watcher itself. The systemd user manager already
+# sets a sane default PATH (see `systemctl --user show-environment`).
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=default.target
