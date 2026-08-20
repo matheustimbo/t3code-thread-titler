@@ -1,0 +1,12 @@
+Source: https://github.com/pingdotgg/t3code — packages/contracts/src
+Vendored at: t3code 0.0.33 (the npm `t3` version installed locally; repo HEAD
+was v0.0.34-nightly.20260820.1139 at copy time).
+License: MIT (see LICENSE in this directory) — Copyright (c) 2026 T3 Tools Inc.
+
+Copied by file because @t3tools/contracts is marked private and is not
+published to npm. Only *.test.ts were excluded. Not modified.
+
+Re-vendor with:
+  git clone --depth 1 https://github.com/pingdotgg/t3code /tmp/t3code-src
+  rsync -a --exclude='*.test.ts' /tmp/t3code-src/packages/contracts/src/ vendor/contracts/src/
+  cp /tmp/t3code-src/LICENSE vendor/contracts/LICENSE
